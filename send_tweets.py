@@ -1,7 +1,7 @@
 import tweepy
 import environment as env
-import rss_feed_nyt as nyt
-import rss_feed_google as google
+# import rss_feed_nyt as nyt
+# import rss_feed_google as google
 import nlp_bbc as bbc
 import time,random
 
