@@ -2,7 +2,7 @@ import tweepy
 import environment as env
 import rss_feed_nyt as nyt
 import rss_feed_google as google
-import rss_feed_bbc as bbc
+import nlp_bbc as bbc
 import time,random
 
 
@@ -19,9 +19,12 @@ def send_tweets(news_feed):
     for tweet in tweets:
         print(tweet)
         print("---")
-        response = client.create_tweet(text=f"#News {tweet}")
-        print(f"https://twitter.com/user/status/{response.data['id']}")
-        time.sleep(random.randint(60,100))
+        sleep_time = random.randint(1200,2400)
+        print(sleep_time)
+        # print("Random Sleep time between tweets")
+        # response = client.create_tweet(text=f"{tweet} #News")
+        # print(f"https://twitter.com/user/status/{response.data['id']}")
+        # time.sleep(sleep_time)
 
-for feed in [bbc,nyt,google]:
+for feed in [bbc]:
     send_tweets(feed)

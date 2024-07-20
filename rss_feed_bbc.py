@@ -82,7 +82,7 @@ def extract_news_items(feed_url):
             description = description[:140 - len(title)]  # Ensure the tweet length limit
             link = entry.link
             hashtags = determine_category(title, description)
-            tweet = f"{title}\n{description}\n{link}\n{hashtags}"
+            tweet = f"{description}\n{link}\n{hashtags}"
             # print(tweet)
             # print("---")
             tweets.append(tweet)
@@ -97,3 +97,5 @@ bbc_rss_url = 'https://feeds.bbci.co.uk/news/rss.xml'
 # Extract and print news items
 def get_headlines():
     return extract_news_items(bbc_rss_url)
+
+print(get_headlines())
