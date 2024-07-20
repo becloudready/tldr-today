@@ -2,3 +2,4 @@ nltk
 tweepy
 bs4
 feedparser
+configparser
