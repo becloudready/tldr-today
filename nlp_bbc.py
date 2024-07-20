@@ -8,6 +8,7 @@ from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 from nltk import pos_tag
 from pathlib import Path
+import os
 
 home_dir = str(Path.home())
 
@@ -17,7 +18,7 @@ nltk.download('stopwords')
 nltk.download('averaged_perceptron_tagger')
 
 # File to store processed GUIDs
-processed_guids_file = home_dir + 'processed_guids_bbc.json'
+processed_guids_file = os.path.join(home_dir,'processed_guids_bbc.json')
 
 # Load processed GUIDs from file
 def load_processed_guids():
