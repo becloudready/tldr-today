@@ -1,6 +1,8 @@
 import tweepy
 import environment as env
-import news_feeds_nyt as nyt
+import rss_feed_nyt as nyt
+import rss_feed_google as google
+import rss_feed_bbc as bbc
 import time,random
 
 
@@ -15,12 +17,11 @@ def send_tweets(news_feed):
     tweets = news_feed.get_headlines()
     # print(tweets)
     for tweet in tweets:
-        # print(tweet)
-        response = client.create_tweet(text=tweet)
+        print(tweet)
+        print("---")
+        response = client.create_tweet(text=f"#News {tweet}")
         print(f"https://twitter.com/user/status/{response.data['id']}")
-        time.sleep(random.randint(5, 10))
+        time.sleep(random.randint(60,100))
 
-
-
-for feed in [nyt]:
+for feed in [bbc,nyt,google]:
     send_tweets(feed)
