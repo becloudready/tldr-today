@@ -1,4 +1,6 @@
 import configparser
+from pathlib import Path
+import os
 
 def read_config(file_path):
     # Initialize the configparser
@@ -18,7 +20,10 @@ def read_config(file_path):
     return consumer_key, consumer_secret, access_token, access_token_secret, client_id, client_secret
 
 # Example usage
-config_file_path = '~/tldr_app_config.ini'
+
+
+home_dir = str(Path.home())
+config_file_path = os.path.join(home_dir,'tldr_app_config.ini')
 consumer_key, consumer_secret, access_token, access_token_secret, client_id, client_secret = read_config(config_file_path)
 
 # Print the variables to verify (remove or comment out in production)
