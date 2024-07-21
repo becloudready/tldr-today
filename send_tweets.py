@@ -3,6 +3,7 @@ import environment as env
 # import rss_feed_nyt as nyt
 # import rss_feed_google as google
 import nlp_bbc as bbc
+import nlp_toi as toi
 import time,random
 
 
@@ -26,5 +27,5 @@ def send_tweets(news_feed):
         print(f"https://twitter.com/user/status/{response.data['id']}")
         time.sleep(sleep_time)
 
-for feed in [bbc]:
+for feed in [bbc,toi]:
     send_tweets(feed)
