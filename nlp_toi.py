@@ -50,21 +50,38 @@ def generate_hashtags(text):
     return ' '.join(hashtags)
 
 # Shorten URL using TinyURL
+# def shorten_url(long_url):
+#     api_url = "https://api.tinyurl.com/create"
+#     token = f"Bearer {env.tinyurl_token}"
+#     headers = {
+#         "Content-Type": "application/json",
+#         "Authorization": token # Replace with your TinyURL API key
+#     }
+#     data = {
+#         "url": long_url,
+#         "domain": "tinyurl.com"
+#     }
+#     response = requests.post(api_url, headers=headers, json=data)
+#     if response.status_code == 200:
+#         return response.json()['data']['tiny_url']
+#     else:
+#         return long_url
+    
 def shorten_url(long_url):
-    api_url = "https://api.tinyurl.com/create"
-    token = f"Bearer {env.tinyurl_token}"
+    api_url = "https://api.short.io/links"
     headers = {
         "Content-Type": "application/json",
-        "Authorization": token # Replace with your TinyURL API key
+        "Authorization": env.shorturl_token
     }
     data = {
-        "url": long_url,
-        "domain": "tinyurl.com"
+        "originalURL": long_url,
+        "domain": "https://g1xz.short.gy"
     }
     response = requests.post(api_url, headers=headers, json=data)
-    if response.status_code == 200:
-        return response.json()['data']['tiny_url']
+    if response.status_code == 201:
+        return response.json()['shortURL']
     else:
+        print(f"Error: {response.status_code} - {response.text}")
         return long_url
 
 # Truncate tweet to fit within Twitter's character limit
