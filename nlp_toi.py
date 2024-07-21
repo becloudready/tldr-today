@@ -1,6 +1,6 @@
 import feedparser
 from bs4 import BeautifulSoup
-from datetime import datetime
+from datetime import datetime, timedelta
 import re
 import json
 import nltk
@@ -75,10 +75,10 @@ def shorten_url(long_url):
     }
     data = {
         "originalURL": long_url,
-        "domain": "https://g1xz.short.gy"
+        "domain": "g1xz.short.gy"
     }
     response = requests.post(api_url, headers=headers, json=data)
-    if response.status_code == 201:
+    if response.status_code == 200:
         return response.json()['shortURL']
     else:
         print(f"Error: {response.status_code} - {response.text}")
@@ -97,6 +97,7 @@ def extract_news_items(feed_url):
     processed_guids = load_processed_guids()
     new_processed_guids = processed_guids[:]
     today = datetime.utcnow().date()
+    yesterday = today - timedelta(days=1)
     tweets = []
 
     for entry in feed.entries:
@@ -105,7 +106,6 @@ def extract_news_items(feed_url):
             title = BeautifulSoup(entry.title, 'html.parser').get_text()
             description = BeautifulSoup(entry.description, 'html.parser').get_text()
             link = entry.link
-            short_link = link
             short_link = shorten_url(link)
             hashtags = generate_hashtags(title + " " + description)
             print(hashtags)
