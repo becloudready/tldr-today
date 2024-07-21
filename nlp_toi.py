@@ -122,6 +122,7 @@ toi_rss_url = 'https://timesofindia.indiatimes.com/rssfeedmostshared.cms'
 
 # Extract and print news items
 def get_headlines():
+    print("Reading from",toi_rss_url)
     return extract_news_items(toi_rss_url)
 
-print(get_headlines())
+# print(get_headlines())
