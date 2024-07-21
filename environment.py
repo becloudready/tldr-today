@@ -25,7 +25,8 @@ def read_config(file_path):
 
 home_dir = str(Path.home())
 config_file_path = os.path.join(home_dir,'tldr_app_config.ini')
-consumer_key, consumer_secret, access_token, access_token_secret, client_id, client_secret = read_config(config_file_path)
+consumer_key, consumer_secret, access_token, \
+access_token_secret, client_id, client_secret, tinyurl_token = read_config(config_file_path)
 
 # Print the variables to verify (remove or comment out in production)
 print(f"Consumer Key: {consumer_key}")
