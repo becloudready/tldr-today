@@ -1,7 +1,6 @@
 import feedparser
 from bs4 import BeautifulSoup
 from datetime import datetime
-import re
 import json
 import nltk
 from nltk.corpus import stopwords
@@ -18,7 +17,7 @@ nltk.download('stopwords')
 nltk.download('averaged_perceptron_tagger')
 
 # File to store processed GUIDs
-processed_guids_file = os.path.join(home_dir,'processed_guids_bbc.json')
+processed_guids_file = os.path.join(home_dir, 'processed_guids_cnbc.json')
 
 # Load processed GUIDs from file
 def load_processed_guids():
@@ -64,38 +63,35 @@ def extract_news_items(feed_url):
 
     for entry in feed.entries:
         pub_date = datetime(*entry.published_parsed[:6]).date()
-        if pub_date == today and entry.id not in processed_guids:
-            title = BeautifulSoup(entry.title, 'html.parser').get_text()
-            description = BeautifulSoup(entry.description, 'html.parser').get_text()
-            # description = description[:140 - len(title)]  # Ensure the tweet length limit
-            link = entry.link
-            hashtags = generate_hashtags(title + " " + description)
-            print(hashtags)
-            tweet = f"{description}\n{link}\n{hashtags}"
-            # tweet = truncate_tweet(tweet)
-            tweets.append(tweet)
-            new_processed_guids.append(entry.id)
+        # if pub_date == today and entry.id not in processed_guids:
+        title = BeautifulSoup(entry.title, 'html.parser').get_text()
+        description = BeautifulSoup(entry.description, 'html.parser').get_text()
+        # description = description[:140 - len(title)]  # Ensure the tweet length limit
+        link = entry.link
+        hashtags = generate_hashtags(title + " " + description)
+        tweet = f"{description}\n{link}\n{hashtags}"
+        # tweet = truncate_tweet(tweet)
+        tweets.append(tweet)
+        new_processed_guids.append(entry.id)
 
     save_processed_guids(new_processed_guids)
     return tweets
 
-# BBC RSS feed URL
-# bbc_rss_url = 'https://feeds.bbci.co.uk/news/rss.xml'
-bbc_rss_url_us_canada = 'https://feeds.bbci.co.uk/news/world/us_and_canada/rss.xml'
-bbc_rss_url_tech = 'https://feeds.bbci.co.uk/news/technology/rss.xml'
-bbc_rss_url_politics = 'https://feeds.bbci.co.uk/news/politics/rss.xml'
-bbc_rss_url_art_entertainment = 'https://feeds.bbci.co.uk/news/entertainment_and_arts/rss.xml'
+# CNBC RSS feed URL
+cnbc_rss_url_earnings = 'https://www.cnbc.com/id/15839135/device/rss/rss.html'
 
-bbc_urls = [bbc_rss_url_us_canada,bbc_rss_url_tech,bbc_rss_url_politics,bbc_rss_url_art_entertainment]
+cnbc_urls = [cnbc_rss_url_earnings]
+
 # Extract and print news items
 def get_headlines():
     tweets = []
-    for url in bbc_urls:
-        print(url)
+    for url in cnbc_urls:
         t = extract_news_items(url)
-        print("t from url",t)
         tweets = t + tweets
-    # return extract_news_items(bbc_rss_url_us_canada)
     return tweets
 
-# print(get_headlines())
+# Print fetched headlines
+if __name__ == "__main__":
+    headlines = get_headlines()
+    for tweet in headlines:
+        print(tweet)
