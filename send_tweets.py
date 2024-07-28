@@ -21,7 +21,7 @@ def send_tweets(news_feed):
     for tweet in tweets:
         print(tweet)
         print("---")
-        sleep_time = random.randint(1200,2400)
+        sleep_time = random.randint(600,1200)
         print(sleep_time)
         print("Random Sleep time between tweets")
         response = client.create_tweet(text=f"{tweet}")
