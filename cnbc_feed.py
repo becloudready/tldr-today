@@ -63,16 +63,16 @@ def extract_news_items(feed_url):
 
     for entry in feed.entries:
         pub_date = datetime(*entry.published_parsed[:6]).date()
-        # if pub_date == today and entry.id not in processed_guids:
-        title = BeautifulSoup(entry.title, 'html.parser').get_text()
-        description = BeautifulSoup(entry.description, 'html.parser').get_text()
-        # description = description[:140 - len(title)]  # Ensure the tweet length limit
-        link = entry.link
-        hashtags = generate_hashtags(title + " " + description)
-        tweet = f"{description}\n{link}\n{hashtags}"
-        # tweet = truncate_tweet(tweet)
-        tweets.append(tweet)
-        new_processed_guids.append(entry.id)
+        if pub_date == today and entry.id not in processed_guids:
+            title = BeautifulSoup(entry.title, 'html.parser').get_text()
+            description = BeautifulSoup(entry.description, 'html.parser').get_text()
+            # description = description[:140 - len(title)]  # Ensure the tweet length limit
+            link = entry.link
+            hashtags = generate_hashtags(title + " " + description)
+            tweet = f"{description}\n{link}\n{hashtags}"
+            # tweet = truncate_tweet(tweet)
+            tweets.append(tweet)
+            new_processed_guids.append(entry.id)
 
     save_processed_guids(new_processed_guids)
     return tweets
