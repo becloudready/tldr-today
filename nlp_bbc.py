@@ -81,12 +81,12 @@ def extract_news_items(feed_url):
 
 # BBC RSS feed URL
 # bbc_rss_url = 'https://feeds.bbci.co.uk/news/rss.xml'
-bbc_rss_url_us_canada = 'https://feeds.bbci.co.uk/news/world/us_and_canada/rss.xml'
+# bbc_rss_url_us_canada = 'https://feeds.bbci.co.uk/news/world/us_and_canada/rss.xml'
 bbc_rss_url_tech = 'https://feeds.bbci.co.uk/news/technology/rss.xml'
-bbc_rss_url_politics = 'https://feeds.bbci.co.uk/news/politics/rss.xml'
-bbc_rss_url_art_entertainment = 'https://feeds.bbci.co.uk/news/entertainment_and_arts/rss.xml'
+# bbc_rss_url_politics = 'https://feeds.bbci.co.uk/news/politics/rss.xml'
+# bbc_rss_url_art_entertainment = 'https://feeds.bbci.co.uk/news/entertainment_and_arts/rss.xml'
 
-bbc_urls = [bbc_rss_url_us_canada,bbc_rss_url_tech,bbc_rss_url_politics,bbc_rss_url_art_entertainment]
+bbc_urls = [bbc_rss_url_tech]
 # Extract and print news items
 def get_headlines():
     tweets = []
