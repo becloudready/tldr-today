@@ -1,10 +1,8 @@
 import tweepy
 import environment as env
-# import rss_feed_nyt as nyt
-# import rss_feed_google as google
-import cnbc_feed as cnbc
-import nlp_bbc as bbc
-import nlp_toi as toi
+import sources.news_feeds.cnbc_feed as cnbc
+import sources.news_feeds.nlp_bbc as bbc
+import sources.news_feeds.nlp_toi as toi
 import time,random
 
 
