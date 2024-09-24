@@ -1,5 +1,12 @@
 [
-  { "gpuModel": "A100", "price": "$10,000", "availability": "In Stock" },
-  { "gpuModel": "H100", "price": "$12,000", "availability": "Out of Stock" },
-  { "gpuModel": "Intel Gaudi2", "price": "$9,000", "availability": "Limited Stock" }
+  { "gpuModel": "A4000", "price": "$90.00", "availability": "In Stock" },
+  { "gpuModel": "A4000", "price": "$90.00", "availability": "In Stock" },
+  { "gpuModel": "A4000", "price": "$90.00", "availability": "In Stock" },
+  { "gpuModel": "T4", "price": "$90.99", "availability": "In Stock" },
+  { "gpuModel": "T4", "price": "$90.99", "availability": "In Stock" },
+  { "gpuModel": "T4", "price": "$90.99", "availability": "In Stock" },
+  { "gpuModel": "T4", "price": "$96.32", "availability": "In Stock" },
+  { "gpuModel": "T4", "price": "$96.86", "availability": "In Stock" },
+  { "gpuModel": "T4", "price": "$97.70", "availability": "In Stock" },
+  { "gpuModel": "T4", "price": "$98.59", "availability": "In Stock" }
 ]
