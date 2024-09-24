@@ -1,0 +1,12 @@
+[
+  { "GPU Name": "A4000", "Provider": "runpod", "Price (USD/hour)": 0.09 },
+  { "GPU Name": "A4000", "Provider": "runpod", "Price (USD/hour)": 0.09 },
+  { "GPU Name": "A4000", "Provider": "runpod", "Price (USD/hour)": 0.09 },
+  { "GPU Name": "T4", "Provider": "azure", "Price (USD/hour)": 0.090992 },
+  { "GPU Name": "T4", "Provider": "azure", "Price (USD/hour)": 0.090992 },
+  { "GPU Name": "T4", "Provider": "azure", "Price (USD/hour)": 0.090992 },
+  { "GPU Name": "T4", "Provider": "azure", "Price (USD/hour)": 0.096316 },
+  { "GPU Name": "T4", "Provider": "azure", "Price (USD/hour)": 0.096858 },
+  { "GPU Name": "T4", "Provider": "azure", "Price (USD/hour)": 0.0977 },
+  { "GPU Name": "T4", "Provider": "azure", "Price (USD/hour)": 0.098587 }
+]
