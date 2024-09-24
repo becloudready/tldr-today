@@ -1,12 +1,12 @@
 [
-  { "gpuModel": "A4000", "price": "$90.00", "availability": "In Stock" },
-  { "gpuModel": "A4000", "price": "$90.00", "availability": "In Stock" },
-  { "gpuModel": "A4000", "price": "$90.00", "availability": "In Stock" },
-  { "gpuModel": "T4", "price": "$90.99", "availability": "In Stock" },
-  { "gpuModel": "T4", "price": "$90.99", "availability": "In Stock" },
-  { "gpuModel": "T4", "price": "$90.99", "availability": "In Stock" },
-  { "gpuModel": "T4", "price": "$96.32", "availability": "In Stock" },
-  { "gpuModel": "T4", "price": "$96.86", "availability": "In Stock" },
-  { "gpuModel": "T4", "price": "$97.70", "availability": "In Stock" },
-  { "gpuModel": "T4", "price": "$98.59", "availability": "In Stock" }
+  { "gpuModel": "A4000", "price": "$0.09", "provider": "runpod" },
+  { "gpuModel": "A4000", "price": "$0.09", "provider": "runpod" },
+  { "gpuModel": "A4000", "price": "$0.09", "provider": "runpod" },
+  { "gpuModel": "T4", "price": "$0.090992", "provider": "azure" },
+  { "gpuModel": "T4", "price": "$0.090992", "provider": "azure" },
+  { "gpuModel": "T4", "price": "$0.090992", "provider": "azure" },
+  { "gpuModel": "T4", "price": "$0.096316", "provider": "azure" },
+  { "gpuModel": "T4", "price": "$0.096858", "provider": "azure" },
+  { "gpuModel": "T4", "price": "$0.0977", "provider": "azure" },
+  { "gpuModel": "T4", "price": "$0.098587", "provider": "azure" }
 ]
